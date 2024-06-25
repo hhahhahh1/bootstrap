@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import '../../ressource/variables.scss';
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap");
+
+
+
+
+.wrapperr {
+  background-repeat: no-repeat;
+  display: block;
+  height: 65%;
+}
+
+
+
+.wrapperr .img {
+  background-image: url(https://zupimages.net/up/20/14/kzjk.jpg);
+  height: 613px;
+  width: auto;
+  background-repeat: repeat;
+  background-size: cover;
+
+}
+
+.info {
+  width: 400px;
+  height: 400px;
+  background: #FCBE1E;
+  position: relative;
+  top: -650px;
+  border-radius: 100%;
+  left: 57%;
+
+  p {
+    color: $animal-kaki-dark;
+    font-size: 30px;
+    font-family: "Baloo Bhai 2", cursive;
+    margin-left: 12%;
+    margin-top: 26%;
+    padding-top: 140px;
+  }
+}
+
+.infos {
+  height: 300px;
+  background: $animal-light-blue2;
+  border-radius: 92px;
+  margin-top: 15px;
+}
+
+.infos-container {
+  width: 100%!important;
+  margin-top: -504px;
+  padding-bottom: 110px;
+}
+
+@media screen and (max-width: 883px) {
+  .wrapperr {
+    height: 88%;
+  }
+  .info {
+    position: initial;
+    border-radius: initial;
+    right: 0%;
+    width: 100%;
+    height: 300px;
+
+     p {
+       margin: 0px 0px 0px 0px;
+       text-align: center;
+       padding-top: 40px;
+     }
+
+     #container {
+      text-align: center!important;
+      padding-right: 76px;
+     }
+  }
+
+  .infos-container {
+    margin-top: 0px;
+  }
+
+
+
+}
+
+@media screen and (max-width: 600px) {
+  .info {
+    position: initial;
+  }
+}
+
+
+// BUTTON
+
+@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+
+$bg: #f3f8fa;
+$white: #fff;
+$black: #8A6C13;
+
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+  transition: $property $duration $ease;
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+button {
+  margin-top: 45px;
+  margin-left: 98px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  &.learn-more {
+    width: 12rem;
+    height: auto;
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: relative;
+      display: block;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+          &::before {
+            position: absolute;
+            content: '';
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: absolute;
+      top: -3px;
+      left: 5px;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: $black;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      // text-transform: uppercase;
+    }
+  }
+  &:hover {
+    .circle {
+      width: 100%;
+      .icon {
+        &.arrow {
+        background: $white;
+        transform: translate(1rem, 0);
+        }
+      }
+    }
+    .button-text {
+      color: $white;
+    }
+  }
+}
+
+@supports (display: grid) {
+  body {
+    display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.625rem;
+  grid-template-areas: ". main main ." ". main main .";
+  }
+
+  #container {
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+.content{
+  width: 100%;
+  height: 1000px;
+  background: red;
+}
+
+
