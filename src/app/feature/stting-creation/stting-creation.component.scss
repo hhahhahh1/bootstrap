@@ -1,0 +1,89 @@
+@import '../../../ressource/variables.scss';
+
+.banner {
+  height: 200px;
+  width: 100%;
+  background: $animal-light-blue;
+}
+
+.banner > h1 {
+  padding-top: 70px;
+  text-align: center;
+  font-size: 300%;
+  color: $animal-kaki;
+}
+
+#sitting-form {
+  background: $animal-yellow-light;
+  padding: 25px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding-top: 8%;
+}
+
+.form-wrapper {
+  margin-top: 88px;
+}
+
+#sitting-form h3  {
+  letter-spacing: 3px;
+  color: $animal-kaki;
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  font-weight: bold;;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 4px;
+}
+
+textarea {
+  width: 100%;
+  height: 220px;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 4px;
+  resize: none;
+  overflow-y: auto;
+}
+
+label {
+  margin-top: 22px;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.date-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.mat-form-field {
+  // margin-right: 70px;
+  // margin-left: 70px;
+}
+
+.btn {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
+
+.button-container {
+  margin-top: 50px;
+}
