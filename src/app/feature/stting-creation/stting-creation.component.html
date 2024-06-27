@@ -1,0 +1,94 @@
+<div class="banner">
+  <h1>Je crée mon annonce</h1>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-wrapper" *ngIf="canCreateSitting">
+        <form id="sitting-form" #f="ngForm" (ngSubmit)="f.form.valid && submitSitting()">
+          <h3>Mon annonce</h3>
+
+          <fieldset>
+            <label>Je choisis mon animal</label>
+            <select class="custom-select" [(ngModel)]="sitting.animalId" #animalId="ngModel" name="animal">
+              <option *ngFor="let a of user.animals" [ngValue]="a.id" >{{a.name}}</option>
+            </select>
+            <div class="alert-danger" *ngIf="f.submitted">
+              <div class="alert-danger" *ngIf="animalId.untouched">Aucun animal choisi</div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label for="title">Titre de l'annonce</label>
+            <input class="input" [(ngModel)]="sitting.title" name="title" placeholder="Titre" type="text" tabindex="2"
+              required minlength="5" maxlength="35" #title="ngModel">
+            <div class="alert-danger" *ngIf="f.submitted && title.invalid">
+              <div *ngIf="title.errors.maxlength">Le titre est trop long</div>
+              <div *ngIf="title.errors.minlength">Le titre n'est pas assez long</div>
+              <div *ngIf="title.untouched">Le champs n'est pas rempli</div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <label for="description">Description de l'annonce</label>
+            <textarea [(ngModel)]="sitting.description" name="description" placeholder="Description" type="text"
+              tabindex="2" required minlength="5" maxlength="5000" #description="ngModel"></textarea>
+            <div class="alert-danger" *ngIf="f.submitted && description.invalid">
+              <div *ngIf="description.errors.maxlength">La description est trop longue</div>
+              <div *ngIf="description.errors.minlength">La description n'est pas assez longue</div>
+              <div *ngIf="description.untouched">Le champs n'est pas rempli</div>
+            </div>
+          </fieldset>
+
+          <div class="container date-wrapper">
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field>
+                  <mat-label>Date de début</mat-label>
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="sitting.shiftBeggining"
+                    (dateInput)="storeBeggining(sitting.shiftBeggining)" name="shiftBeggining">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                  <mat-label>Date de fin</mat-label>
+                  <input matInput [matDatepicker]="picker2" [(ngModel)]="sitting.shiftEnd"
+                    (dateInput)="storeEnd(sitting.shiftEnd)" name="shiftEnd">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <!-- Validate / Cancel buttons -->
+          <div class="container button-container">
+            <div class="row" *ngIf="!cancelCreate">
+              <div class="col-sm-12">
+                <button class="btn btn-outline-success" (click)="toggleCancelCreate()">CREER L'ANNONCE</button>
+              </div>
+            </div>
+            <div class="row" *ngIf="cancelCreate">
+              <div class="col-sm-6">
+                <button class="btn btn-outline-danger" (click)="toggleCancelCreate()">ANNULER</button>
+              </div>
+              <div class="col-sm-6">
+                <button class="btn btn-outline-success">CONFIRMER</button>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button (click)="checkDateValidity()">TEST</button>
