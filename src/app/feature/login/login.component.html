@@ -1,0 +1,57 @@
+<div class="test">
+
+  <div class="containerr">
+    <form id="contact" #f="ngForm" (ngSubmit)="f.form.valid && login()">
+      <h3 class="text-center">Je me connecte</h3>
+      <fieldset>
+        <input [(ngModel)] = "request.username" name="username" placeholder="Pseudo" type="text" tabindex="1" required autofocus
+        required minlength="3" maxlength="20" #username="ngModel">
+        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Pseudo non saisi</div>
+          <div *ngIf="username.errors.minlength">
+            Le pseudo doit contenir au moins 3 caractères
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Le pseudo ne doit pas excéder 20 caractères
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <input [(ngModel)] = "request.password" name="password" placeholder="mot de passe" type="password" tabindex="2" required minlength="6"
+        #password="ngModel">
+        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Mot de passe non saisi</div>
+          <div *ngIf="password.errors.minlength">
+            Le mot de passe doit faire au minimum 6 caractères
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <button class="btn btn-outline-success" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Connexion</button>
+      </fieldset>
+
+      <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <div class="alert alert-success" *ngIf="isSuccessful" role="alert" style="text-align: center;">
+        Connexion réussie !
+      </div>
+
+      <div *ngIf="isFailed" class="alert alert-danger" role="alert" style="text-align: center;">
+        Une erreur est survenue
+      </div>
+
+    </form>
+
+
+
+  </div>
+
+</div>
+
+
+
+
