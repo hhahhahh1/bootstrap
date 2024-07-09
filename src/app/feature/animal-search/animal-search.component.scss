@@ -1,0 +1,65 @@
+@import '../../../ressource/variables.scss';
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap");
+
+
+.banner {
+  height: 200px;
+  width: 100%;
+  background: $animal-light-blue;
+}
+
+.banner > h1 {
+  padding-top: 70px;
+  text-align: center;
+  font-size: 300%;
+  color: $animal-kaki;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: $animal-yellow-dark;
+  border-radius: 50px;
+}
+
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+  border-radius: 50px;
+
+}
+
+a {
+  color: $animal-kaki!important;
+}
+
+.nav-tabs {
+  border-bottom: none!important;
+}
+
+ul {
+  padding-top: 25px;
+}
+
+.tab-pane {
+  padding-top: 40px;
+  height: 500px;
+}
+
+.params {
+  text-align: center;
+  padding-top: 51px;
+}
+
+.button {
+  text-align: center;
+}
+
+label {
+  margin-right: 9px;
+}
+
+#postcode {
+  margin-right: 10px;
+}
+
+.btn{
+  border-radius: 50px!important;
+}
