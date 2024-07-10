@@ -1,0 +1,94 @@
+<div class="banner">
+  <!-- <h1>Trouver une annonce</h1> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="params">
+          <!-- INPUT POSTCODE -->
+          <label for="postcode">Code postal</label>
+          <input id="postcode" type="text" [(ngModel)]="postcode" placeholder="Exp : 75, 94" maxlength="2">
+          <!-- DATE 1 -->
+          <mat-form-field style="margin-right: 10px;">
+            <mat-label>Date de début</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="shiftBeggining"
+              (dateInput)="storeBeggining(shiftBeggining)" name="shiftBeggining">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <!-- DATE 2 -->
+          <mat-form-field>
+            <mat-label>Date de fin</mat-label>
+            <input matInput [matDatepicker]="picker2" [(ngModel)]="shiftEnd"
+              (dateInput)="storeEnd(shiftEnd)" name="shiftEnd">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="button">
+          <button class="btn btn-outline-success" (click)="search()">CHERCHER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <ul class="nav nav-tabs justify-content-center nav-pills" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+      aria-selected="true">Les annonces</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+      aria-selected="false">Autour de moi</a>
+  </li>
+
+</ul> -->
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="container">
+
+      <!-- infinite scroll div -->
+      <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+        (scrolled)="onScroll()">
+        <div *ngFor="let sitting of sittingList">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 p-2">
+                <app-sittings [sitting]="sitting"></app-sittings>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-6">
+            <app-map [sittingList]="sittingList"></app-map>
+          </div>
+        </div>
+      </div>
+
+      <!-- spinner -->
+      <div class="row pb-5">
+        <div class="col-md-12 p-5">
+          <ngx-spinner bdOpacity=0.9 bdColor="" size="default" color="#581f87" type="ball-pulse-sync"
+            [fullScreen]="false">
+          </ngx-spinner>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
