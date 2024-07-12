@@ -1,0 +1,70 @@
+<div class="test">
+
+  <div class="containerr">
+    <form id="contact" #f="ngForm" (ngSubmit)="f.form.valid && auth()">
+      <h3>Je m'inscris</h3>
+      <h4>Des informations complémentaires vous seront demandé plus tard afin de compléter votre profil.</h4>
+      <fieldset>
+        <input [(ngModel)] = "request.pseudo" name="pseudo" placeholder="Pseudo" type="text" tabindex="1" required autofocus
+        required minlength="3" maxlength="20" #username="ngModel">
+        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.minlength">
+            Le pseudo doit contenir au moins 3 caractères
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Le pseudo ne doit pas excéder 20 caractères
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <input [(ngModel)] = "request.password" name="password" placeholder="mot de passe" type="password" tabindex="2" required minlength="6"
+        #password="ngModel">
+        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <input [(ngModel)] = "request.email" name="email" placeholder="email" type="email" tabindex="3" required email
+        #email="ngModel">
+        <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">
+            Email must be a valid email address
+          </div>
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+        <button class="btn btn-outline-success" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Valider</button>
+      </fieldset>
+
+      <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Compte créé avec succès !
+      </div>
+
+      <div class="alert alert-danger" *ngIf="isFailed">
+        {{errorMessage}}
+      </div>
+
+    </form>
+
+
+
+  </div>
+
+</div>
+
+
+
+
