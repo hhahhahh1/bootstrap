@@ -1,0 +1,196 @@
+<div class="global">
+
+
+
+
+  <div class="banner">
+    <h1>Mes animaux</h1>
+  </div>
+
+
+  <ul class="nav nav-tabs justify-content-center nav-pills" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+        aria-selected="true">Mes animaux</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+        aria-selected="false">Ajouter un animal</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+        aria-selected="false">Infos</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+      <!-- IF USER HAS NO ANIMALS YET -->
+      <div class="container" *ngIf="userAnimals.length === 0">
+        <div class="no-animals col-sm-12">
+          <h2>Vous n'avez pas encore d'animaux</h2>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4" *ngFor="let animal of userAnimals">
+            <app-animal-bubble [animal]="animal"></app-animal-bubble>
+          </div>
+          <!-- <div class="col-sm-4">
+            <div class="aniframe">
+
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="aniframe">
+
+            </div>
+          </div> -->
+
+        </div>
+
+      </div>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <div class="containerr">
+              <form id="aniform" #f="ngForm" (ngSubmit)="f.form.valid && submitAnimal()">
+                <h3>Ajouter un animal</h3>
+                <h4>Créez ici le profil de votre animal, dans la limite de 3 animaux</h4>
+                <fieldset>
+                  <label for="firstName">Le nom de mon animal</label><br>
+                  <input [(ngModel)]="requestAnimal.name" name="name" placeholder="Nom de l'animal" type="text"
+                    tabindex="1" required autofocus required minlength="1" maxlength="20" #name="ngModel">
+                  <div class="alert-danger" *ngIf="f.submitted && name.invalid">
+                    <div *ngIf="name.errors.required">Un nom est requis pour votre animal !</div>
+                    <div *ngIf="name.errors.minlength">
+                      Le nom doit contenir au moins un caractères
+                    </div>
+                    <div *ngIf="name.errors.maxlength">
+                      Le nom ne doit pas excéder 20 caractères
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label for="firstName">L'âge de mon animal</label><br>
+                  <input [(ngModel)]="requestAnimal.age" name="age" placeholder="Age de l'animal" type="text"
+                    tabindex="2" #age="ngModel">
+                  <div class="alert-danger" *ngIf="f.submitted && age.invalid">
+                    <div *ngIf="age.errors.required">L'animal doit avoir un age</div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label for="firstName">Le numéro de tatouage de mon animal</label><br>
+                  <input [(ngModel)]="requestAnimal.tatoo" name="tatoo"
+                    placeholder="Le numero du tatouage de votre animal" type="text" tabindex="3" required tatoo
+                    #tatoo="ngModel">
+                  <div class="alert-danger" *ngIf="f.submitted && tatoo.invalid">
+                    <div *ngIf="tatoo.errors.required">Un numero de tatouage est requis</div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label for="firstName">La couleur du pelage de mon animal</label><br>
+                  <input [(ngModel)]="requestAnimal.furColor" name="furColor"
+                    placeholder="La couleur du pelage de votre animal" type="text" tabindex="4" required furColor
+                    #furColor="ngModel">
+                  <div class="alert-danger" *ngIf="f.submitted && furColor.invalid">
+                    <div *ngIf="furColor.errors.required">La couleur du pelage n'est pas renseignée</div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label for="firstName">La couleur des yeux de mon animal</label><br>
+                  <input [(ngModel)]="requestAnimal.eyesColor" name="eyesColor"
+                    placeholder="La couleur des yeux de votre animal" type="text" tabindex="5" required eyesColor
+                    #eyesColor="ngModel">
+                  <div class="alert-danger" *ngIf="f.submitted && eyesColor.invalid">
+                    <div *ngIf="eyesColor.errors.required">La couleur du yeux n'est pas renseignée</div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label for="firstName">Que mange mon animal ?</label><br>
+                  <input [(ngModel)]="requestAnimal.whatDoIEat" name="whatDoIeat"
+                    placeholder="Ce que mange votre animal" type="text" tabindex="6" required whatDoIeat
+                    #whatDoIeat="ngModel">
+                  <div class="alert-danger" *ngIf="f.submitted && whatDoIeat.invalid">
+                    <div *ngIf="whatDoIeat.errors.required">Veuillez renseigner l'alimentation de l'animal</div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label for="firstName">Quand mon animal mange-t-il ?</label>
+                  <input [(ngModel)]="requestAnimal.whenDoIEat" name="whenDoIEat"
+                    placeholder="Doit il manger a un moment précis ?" type="text" tabindex="6" required whenDoIEat
+                    #whenDoIEat="ngModel">
+                  <div class="alert-danger" *ngIf="f.submitted && whenDoIEat.invalid">
+                    <div *ngIf="whenDoIEat.errors.required">Veuillez renseigner quand mange votre animal</div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label for="firstName">Mon animal est il malade ?</label><br>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input"
+                      [(ngModel)]="requestAnimal.sick" value="true">
+                    <label class="custom-control-label" for="customRadioInline1">Oui</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input"
+                      [(ngModel)]="requestAnimal.sick" value="false">
+                    <label class="custom-control-label" for="customRadioInline2">Non</label>
+                  </div>
+                </fieldset>
+
+                <!-- <div *ngIf="this.requestAnimal.photo" class="progress">
+                  <div class="progress-bar progress-bar-info progress-bar-striped"
+                    role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                    aria-valuemin="0" aria-valuemax="100"
+                    [ngStyle]="{width:progress.percentage+'%'}">
+                    {{progress.percentage}}%</div>
+                </div> -->
+
+
+                <!-- <fieldset>
+                  <label class="btn btn-default">
+                    <input type="file" (change)="onselectedFile($event)">
+                  </label>
+                </fieldset> -->
+
+
+                <fieldset>
+                  <button name="submit" type="submit" id="aniform-submit" data-submit="...Sending">Valider</button>
+                </fieldset>
+
+                <div class="alert alert-success" *ngIf="isSuccessful">
+                  Animal créé avec succès !
+                </div>
+
+                <div class="alert alert-danger" *ngIf="isFailed">
+                  Une erreur est survenue
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">LOLOLOLOLOLOLOLOLOLOLOLOLOL
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>
