@@ -1,0 +1,220 @@
+@import '../../../../ressource/variables.scss';
+
+.banner {
+  height: 200px;
+  width: 100%;
+  background: $animal-light-blue;
+}
+
+.banner > h1 {
+  padding-top: 70px;
+  text-align: center;
+  font-size: 300%;
+  color: $animal-kaki;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: $animal-yellow-dark;
+  border-radius: 50px;
+}
+
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+  border-radius: 50px;
+
+}
+
+a {
+  color: $animal-kaki!important;
+}
+
+.nav-tabs {
+  border-bottom: none!important;
+}
+
+ul {
+  padding-top: 25px;
+}
+
+.tab-pane {
+  padding-top: 40px;
+  height: 500px;
+}
+
+.aniframe {
+  background-color: royalblue;
+  min-height: 500px;
+  text-align: center;
+  border-radius: 57px;
+}
+
+.aniphoto {
+  margin-top: 20px;
+  display: inline-block;
+  // background-color: yellow;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+}
+
+h3 {
+  padding-top: 5px;
+}
+
+p {
+  text-align: left;
+  padding-left: 20px;
+}
+
+
+
+// CSS TEMPLATE FROM ACCOUNT.SCSS
+
+.containerr {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 8%;
+  // position: relative;
+}
+
+#aniform input[type="text"],
+#aniform input[type="email"],
+#aniform input[type="tel"],
+#aniform input[type="url"],
+#aniform input[type="password"],
+#aniform textarea,
+#aniform button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#aniform {
+  background: $animal-yellow-light;
+  padding: 25px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding-top: 8%;
+}
+
+#aniform h3 {
+  letter-spacing: 3px;
+  color: $animal-kaki;
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  font-weight: bold;;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#aniform h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  color: $animal-kaki;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#aniform input[type="text"],
+#aniform input[type="password"],
+#aniform input[type="email"],
+#aniform input[type="tel"],
+#aniform input[type="url"],
+#aniform textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#aniform input[type="text"]:hover,
+#aniform input[type="email"]:hover,
+#aniform input[type="password"],
+#aniform input[type="tel"]:hover,
+#aniform input[type="url"]:hover,
+#aniform textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#aniform textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#aniform button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: $animal-kaki-light;
+  color: $animal-kaki;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#aniform button[type="submit"]:hover {
+  color: white;
+  background: $animal-kaki;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#aniform button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#aniform input:focus,
+#aniform textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+
+fieldset > label {
+  margin-top: 15px;
+  font-style: italic;
+}
+
+.no-animals {
+  background-color: $animal-yellow-light;
+  text-align: center;
+  height: 200px;
+  border-radius: 100px;
+  h2{
+    color: $animal-kaki;
+    padding-top: 67px;
+  }
+}
