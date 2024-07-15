@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Ajoutez une photo pour votre animal {{data.animal.name}}</h1>
+<div mat-dialog-content>
+  <input type="file" (change)="onFileChanged($event)"><br>
+  <input type="button" (click)="onUpload()" value="upload">
+
+</div>
+<div mat-dialog-actions>
+  <button (click)="test()">TEST</button>
+  <button mat-button mat-dialog-close >Close</button>
+</div>
