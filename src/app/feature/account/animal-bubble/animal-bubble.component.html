@@ -1,0 +1,20 @@
+<div class="aniframe">
+  <div class="aniphoto">
+    <img class="animal-image" [src]="retrievedImage" *ngIf="retrievedImage != null">
+    <span class="material-icons" style="margin-left: 0px; margin-top: 0px;cursor: pointer;" (click)="openDialog()">add_a_photo</span><p>Ajouter une photo</p>
+  </div>
+  <div>
+    <h3>{{animal.name}}</h3>
+  </div>
+  <p>Mon animal a {{animal.age}} ans, les yeux {{animal.eyesColor}} et le pelage {{animal.furColor}}</p>
+  <p>Tatouage n° {{animal.tatoo}}</p>
+  <p>Il mange : {{animal.whatDoIEat}}, {{animal.whenDoIEat}}</p>
+  <p>Mon animal est il malade ? : {{animal.sick ? 'Oui' : 'Non'}}</p>
+  <div>
+  </div>
+
+  <div>
+
+  </div>
+
+</div>
