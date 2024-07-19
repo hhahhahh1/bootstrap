@@ -1,0 +1,111 @@
+@import '../../../ressource/variables.scss';
+.body {
+  background: $animal-light-blue!important;
+}
+.global {
+  // background: $animal-light-blue!important;
+}
+
+h3 {
+  color: $animal-kaki;
+
+}
+
+p {
+  margin-top: 52px;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+label {
+  margin-top: 15px;
+  float: left;
+  font-style: italic;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 4px;
+}
+
+.profil-info {
+  // margin-left: 5px;
+  // margin-right: 5px;
+  // border-color: black;
+  // border-style: solid;
+  text-align: center;
+  background: $animal-yellow-light;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding-top: 8%;
+  padding: 25px;
+
+}
+.profil-photo {
+  margin-left: 5px;
+  margin-right: 5px;
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+
+.photo {
+  height: 300px;
+  width: 100%;
+  text-align: center;
+}
+
+.pic {
+  margin-top: 25px;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  background-image: url("https://cdn0.iconfinder.com/data/icons/user-collection-4/512/user-512.png");
+  background-size: contain;
+  text-align: center;
+  border-radius: 100%;
+}
+
+datalist {
+  overflow-y:auto;
+}
+
+option {
+  width: 100%;
+}
+
+
+// BOUTONS MODIFIER SAUVEGARDER
+
+.btn {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
+
+
+// COLONNE ANIMAUX
+.animals {
+  min-height: 500px;;
+}
+
+.animals > h2 {
+  padding-top: 100px;
+  font-style: italic;
+  color: $animal-kaki;
+}
+
+h5{
+  color: $animal-kaki;
+}
+
