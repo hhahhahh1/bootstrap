@@ -1,0 +1,151 @@
+<div class="global">
+  <div class="container photo">
+    <div class="pic">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <button class="btn btn-outline-warning" [hidden]="viewType == 'UPDATE'"
+          (click)="toggleUpdate()">MODIFIER</button>
+        <button class="btn btn-outline-danger" [hidden]="viewType == 'READ'" (click)="toggleRead()">ANNULER</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-outline-success" [hidden]="viewType == 'READ'" name="submit" type="submit"
+          id="contact-submit" data-submit="...Sending" (click)="updateUser()">VALIDER</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <form id="contact" #f="ngForm" (ngSubmit)="f.form.valid && updateUser()">
+      <div class="row">
+        <div class="mt-3 col-sm-6">
+          <div class="profil-info">
+            <h3>Mes informations</h3>
+            <fieldset>
+              <label for="pseudo">Pseudo</label>
+              <input [(ngModel)]="user.pseudo" name="pseudo" placeholder="Pseudo" type="text" tabindex="1" required
+                autofocus required minlength="3" maxlength="20" #username="ngModel">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+              Le pseudo doit contenir au moins 3 caractères
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Le pseudo ne doit pas excéder 20 caractères
+            </div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Prénom</label>
+              <input [(ngModel)]="user.firstName" name="firstName" placeholder="Prénom" type="text" tabindex="2"
+                required required minlength="3" maxlength="20" #username="ngModel" id="input">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Prénom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Nom</label>
+              <input [(ngModel)]="user.lastName" name="lastName" placeholder="Nom" type="text" tabindex="3" required
+                required minlength="3" maxlength="30" #username="ngModel">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Age</label>
+              <input [(ngModel)]="user.age" name="age" placeholder="age" type="text" tabindex="4" required
+                maxlength="20" #age="ngModel" value="user.age === 0 ? 12 : user.value">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">E-mail</label>
+              <input [(ngModel)]="user.email" name="email" placeholder="e-mail" type="text" tabindex="5" required
+                required minlength="3" maxlength="30" #email="ngModel">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Numéro de téléphonne</label>
+              <input [(ngModel)]="user.phone" name="phone" placeholder="Téléphone" type="text" tabindex="6" required
+                required minlength="10" maxlength="10" #phone="ngModel">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Password</label>
+              <input readonly placeholder="********">
+              <a style="float: right;" href="">Changer mon mot de passe</a>
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+          </div>
+        </div>
+
+
+        <div class="mt-3 col-sm-6">
+          <div class="profil-info">
+            <h3>Adresse</h3>
+            <fieldset>
+              <label for="firstName">Ville</label>
+              <input [(ngModel)]="user.adress.city" name="city" placeholder="Ville" type="text" tabindex="7" required
+                required minlength="1" maxlength="30" #city="ngModel">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Adresse</label>
+              <input [(ngModel)]="user.adress.street" name="addressForAutocomplete" placeholder="Addresse" type="text"
+                tabindex="8" required #address="ngModel" list="datalist" (input)="autocomplete()"
+                (change)="onSortChange($event)">
+              <datalist id="datalist">
+                <option value="{{a.name}}" *ngFor="let a of autocompleteResult">{{a.region}}</option>
+              </datalist>
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Code Postal</label>
+              <input [(ngModel)]="user.adress.postalcode" name="postalCode" placeholder="Code postal" type="text"
+                tabindex="9" required required minlength="5" maxlength="5" #postalCode="ngModel">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+            <fieldset>
+              <label for="firstName">Pays</label>
+              <input [(ngModel)]="user.adress.country" name="country" placeholder="Pays" type="text" tabindex="10"
+                required required minlength="1" maxlength="30" #country="ngModel">
+              <!-- <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Nom requis</div>
+          </div> -->
+            </fieldset>
+
+          </div>
+        </div>
+        <!-- <div class="mt-3 col-sm-4">
+                          <div class="profil-info">
+                            <h3>Mes ... ?</h3>
+                          </div>
+                         </div> -->
+      </div>
+    </form>
+  </div>
